@@ -1,49 +1,62 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { Button, Page, Modal, Nav } from "./index";
+import Link from "next/link";
+import { TypewriterEffectSmoothDemo } from "./home/TypewriterEffectSmoothDemo";
 
 export default function Hero() {
   const [showModal, setShowModal] = useState(false);
   const [onInputChange, setOnInputChange] = useState("");
   return (
-    <Page>
-      <Nav />
-      <section className="relative py-12 sm:py-16 lg:py-20 lg:pb-36">
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-8">
-            <div>
+    <>
+      <section id="home" className="relative pt-32 pb-24 sm:py-16 lg:pt-44 lg:pb-32 bg-white md:max-w-6xl md:mx-auto md:px-0 px-6">
+        <div className="w-full mx-auto sm:px-6 lg:px-0 flex">
+          <div className="flex flex-col-reverse md:flex-row mx-auto lg:items-center gap-y-12 lg:gap-x-8">
+            <div className="">
               <div className="text-center lg:text-left">
-                <h1 className="text-4xl font-sans font-medium leading-tight text-white sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-sams">
-                  Control who can watch your live streams
+                <h1 className="text-3xl font-sans font-medium leading-tight text-black sm:text-5xl sm:leading-tight lg:leading-tight lg:text-5xl font-sams">
+                  Bringing back fun, safe, livestreams with{' '}
+                  <span
+                    style={{ color: "#FFA800" }}
+                  >
+                    N
+                    <span className="md:hidden">
+                      o
+                    </span>
+                    <span className="hidden md:inline-block md:text-5xl">
+                      🚫
+                    </span>
+                    {' '}Bananas 🍌
+                  </span>
                 </h1>
-                <p className="mt-2 text-lg text-gray-400 sm:mt-8 font-sans">
-                  A demo application that demonstrates how to use the Livepeer
-                  to create token gating live streams with Aptos.
+                {/* <TypewriterEffectSmoothDemo /> */}
+                <p className="hidden md:block mt-2 md:text-lg text-gray-400 sm:mt-4 font-sans">
+                  No Bananas is a safe and fun way to enjoy live streams with
+                  friends and family. Start your own live stream today!
                 </p>
               </div>
-              <div className="mt-8 text-center lg:text-left flex flex-col md:flex-row ">
-                <Button
-                  to="/create"
-                  text="text-xl"
-                  className="bg-primary border-primary text-background px-10 py-4 hover:border-primary hover:text-primary hover:bg-background"
+              <div className="mt-4 md:mt-8 text-center lg:text-left flex gap-2">
+                <Link
+                  href="/create"
+                  className="bg-primary border-primary text-background md:px-10 py-3 md:py-4 hover:border-primary hover:text-primary hover:bg-background w-full md:w-1/2 text-sm md:text-base rounded-xl text-center transition-all duration-300 hover:scale-95"
                 >
-                  Set up stream
-                </Button>
+                  Start Now
+                </Link>
                 <Button
                   onClick={() => setShowModal(true)}
-                  text="text-xl"
-                  className="border-primary px-10 py-4 text-primary md:ml-8 hover:bg-primary hover:text-background mt-3 md:mt-0"
+                  className="border-primary md:px-10 py-3 md:py-4 text-primary hover:bg-primary hover:text-background w-full text-sm md:text-base ransition-all duration-300 hover:scale-95"
                 >
-                  Watch stream
+                  Live stream
                 </Button>
               </div>
             </div>
-            <div className="w-full h-100 relative pb-[100%] md:ml-8">
+            <div className="">
               <Image
-                className="hero-image"
-                src="/assets/hero.png"
-                layout="fill"
-                alt="Aptos Logo"
+                className="object-cover"
+                src="/assets/BANANA2.gif"
+                width={1500}
+                height={1500}
+                alt="banana"
               />
             </div>
           </div>
@@ -58,6 +71,6 @@ export default function Hero() {
           }}
         />
       )}
-    </Page>
+    </>
   );
 }
